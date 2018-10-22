@@ -5,7 +5,13 @@ genrule(
     srcs = [
         "autogen.sh",
         "configure.ac",
-    ] + glob(["**/*.in", "m4/*.m4"]),
+        "Makefile.am",
+        "doc/Makefile.am",
+        "NEWS",
+        "README",
+        "AUTHORS",
+        "ChangeLog",
+    ] + glob(["**/*.in", "m4/*.m4", "*.mk", "src/*.c"]),
     outs = ["config.h"],
     cmd = "./$(location autogen.sh) " + 
           "&& ./`dirname $(location autogen.sh)`/configure " +
@@ -18,8 +24,10 @@ cc_library(
         [
             "src/*.c",
             "celt/*.c",
+            "celt/x86/*.c",
             "silk/*.c",
             "silk/float/*.c",
+            "silk/x86/*.c",
         ],
         exclude = [
             "celt/opus_custom_demo.c",
@@ -31,8 +39,10 @@ cc_library(
         [
             "include/*.h",
             "celt/*.h",
+            "celt/x86/*.h",
             "silk/*.h",
             "silk/float/*.h",
+            "silk/x86/*.h",
             "src/*.h",
         ],
     ) + [

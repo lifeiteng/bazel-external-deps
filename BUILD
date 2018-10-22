@@ -11,7 +11,7 @@ cc_library(
     copts = [""],
     deps = [
         "@org_lame//:liblame",
-        # "@org_opus//:libopus",
+        "@org_opus//:libopus",
     ],
     visibility = ["//visibility:public"],
 )

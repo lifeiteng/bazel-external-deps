@@ -2,7 +2,7 @@
 #define BAZEL_EXAMPLE_H_
 
 #include "lame.h"
-// #include "opus.h"
+#include "opus.h"
 
 namespace test {
 
